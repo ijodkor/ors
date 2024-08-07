@@ -1,0 +1,6 @@
+@ORS_HostAddress = http://localhost:5081
+
+GET {{ORS_HostAddress}}/
+Accept: application/json
+
+###

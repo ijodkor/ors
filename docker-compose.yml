@@ -1,0 +1,6 @@
+﻿services:
+  ors:
+    image: ors
+    build:
+      context: .
+      dockerfile: ORS/Dockerfile
