@@ -1,10 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
+using ORS.Apps.Regions.Entities;
 
 namespace ORS.Apps.Regions;
 
 [ApiController]
 [Route("api/regions")] // [Route("api/[controller]")]
-public class RegionController : Controller {
+public class RegionController(RegionService service) : Controller {
     // GET
     [HttpGet]
     public string[] Index() {
@@ -12,7 +13,12 @@ public class RegionController : Controller {
     }
 
     [HttpGet("provinces")]
-    public string Provinces() {
-        return "Provinces";
+    public async Task<List<Province>> Provinces() {
+        return await service.Provinces();
+    }
+
+    [HttpGet("districts")]
+    public async Task<List<District>> Districts() {
+        return await service.Districts();
     }
 }

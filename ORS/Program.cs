@@ -1,4 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using ORS.Apps.Regions;
 using ORS.Apps.Weather;
+using ORS.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Register DI services
+builder.Services.AddDbContext<DatabaseContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<RegionService>();
 
 // Register controllers
 builder.Services.AddControllers();
