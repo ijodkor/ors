@@ -3,6 +3,7 @@ Description=My ASP.NET Core Application
 After=network.target
 
 [Service]
+WorkingDirectory=/path/to/publish/directory/
 ExecStart=/usr/bin/dotnet /path/to/publish/directory/ORS.dll
 Restart=always
 User=www-data
