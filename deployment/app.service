@@ -1,0 +1,13 @@
+[Unit]
+Description=My ASP.NET Core Application
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/dotnet /path/to/publish/directory/ORS.dll
+Restart=always
+User=www-data
+Group=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+
+[Install]
+WantedBy=multi-user.target

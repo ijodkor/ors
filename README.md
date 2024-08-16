@@ -1,5 +1,35 @@
 # Open Resource Server
 
+## Installation and running
+
+Setup and configuration
+
+``cp appsettings.dev.json appsettings.json``
+
+## Deploy
+
+1. Publish the application:
+
+    ```bash
+    dotnet publish -c Release -o /path/to/publish/directory
+    ```
+
+2. Create a service file for this application:
+
+    ```bash 
+    sudo nano /etc/systemd/system/myapp.service
+    ```
+
+3. Copy content of service which is located in deployment directory
+4. Start the service:
+    ```bash
+   sudo systemctl start
+    ```
+5. Enable the service to start on boot (after success):
+    ```bash
+   sudo systemctl enable myapp
+    ```
+
 ## Working methods
 
 Migration create
@@ -25,3 +55,4 @@ Migration create
 - [Postgres Connection](https://medium.com/@saisiva249/how-to-configure-postgres-database-for-a-net-a2ee38f29372)
 - [Map in C#](https://www.c-sharpcorner.com/blogs/dictionary-and-maps-in-c-sharp)
 - [Dependency Injection](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-8.0)
+- [Classification of Regions](https://github.com/kenjebaev/regions)
