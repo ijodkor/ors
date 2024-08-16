@@ -1,3 +1,5 @@
+using ORS.Apps.Regions.Models;
+
 namespace ORS.Apps.Regions.Entities;
 
 public class Province() {
@@ -9,12 +11,13 @@ public class Province() {
 
     public int order { get; set; } = 1;
 
-    public Province(int id, string name) : this() {
-        this.id = id;
-        this.name = name;
+    public Province(Region region) : this() {
+        id = region.Id;
+        name = region.Name;
+        order = region.Order;
 
-        names["uzl"] = name;
-        names["uzk"] = name;
-        names["ru"] = name;
+        names["uzl"] = region.NameUzl;
+        names["uzk"] = region.NameUzk;
+        names["ru"] = region.NameRu;
     }
 }

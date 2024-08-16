@@ -22,6 +22,9 @@ csharp_new_line_before_open_brace = none
 csharp_indent_braces = false
 resharper_csharp_empty_block_style = together
 csharp_new_line_before_else = false
+resharper_csharp_place_type_attribute_on_same_line = never
+resharper_csharp_place_field_attribute_on_same_line = never
+resharper_place_property_attribute_on_same_line = false
 
 [*.md]
 max_line_length = 200

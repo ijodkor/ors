@@ -8,24 +8,26 @@ public class RegionService(DatabaseContext _context) {
     private readonly DatabaseContext db = _context;
 
     public async Task<List<Province>> Provinces() {
-        var regions = await db.Regions.ToListAsync();
-
-        await Task.Run(() => { });
+        var regions = await db.Regions
+            .Where(region => region.ParentId == null)
+            .ToListAsync();
 
         List<Province> provinces = [];
         foreach (var region in regions) {
-            provinces.Add(new Province(region.Id, region.Name));
+            provinces.Add(new Province(region));
         }
 
         return provinces;
     }
 
-    public async Task<List<District>> Districts() {
-        var regions = await db.Regions.ToListAsync();
+    public async Task<List<District>> Districts(int provinceId) {
+        var regions = await db.Regions
+            .Where(region => region.ParentId == provinceId)
+            .ToListAsync();
 
         List<District> districts = [];
         foreach (var region in regions) {
-            districts.Add(new District(region.Id, region.Name, region.Id));
+            districts.Add(new District(region));
         }
 
         return districts;

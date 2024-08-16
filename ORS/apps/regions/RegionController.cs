@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using ORS.Apps.Regions.Entities;
 
 namespace ORS.Apps.Regions;
@@ -18,7 +19,8 @@ public class RegionController(RegionService service) : Controller {
     }
 
     [HttpGet("districts")]
-    public async Task<List<District>> Districts() {
-        return await service.Districts();
+    public async Task<List<District>> Districts([BindRequired, FromQuery(Name = "provinceId")] int provinceId) {
+        Console.WriteLine(provinceId);
+        return await service.Districts(provinceId);
     }
 }

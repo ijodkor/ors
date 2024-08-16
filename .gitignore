@@ -8,3 +8,7 @@ obj/
 /packages/
 riderModule.iml
 /_ReSharper.Caches/
+
+
+# Environment variables
+ORS/appsettings.json

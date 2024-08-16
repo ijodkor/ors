@@ -1,3 +1,5 @@
+using ORS.Apps.Regions.Models;
+
 namespace ORS.Apps.Regions.Entities;
 
 public class District() {
@@ -11,13 +13,14 @@ public class District() {
 
     public int order { get; set; } = 1;
 
-    public District(int id, string name, int provinceId) : this() {
-        this.id = id;
-        this.name = name;
-        this.provinceId = provinceId;
-        
-        names["uzl"] = name;
-        names["uzk"] = name;
-        names["ru"] = name;
+    public District(Region region) : this() {
+        id = region.Id;
+        name = region.Name;
+        order = region.Order;
+        provinceId = (int)region.ParentId!;
+
+        names["uzl"] = region.NameUzl;
+        names["uzk"] = region.NameUzk;
+        names["ru"] = region.NameRu;
     }
 }
