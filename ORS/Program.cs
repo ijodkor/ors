@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using ORS.Apps.Authors;
 using ORS.Apps.Regions;
-using ORS.Apps.Weather;
 using ORS.Database;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,14 +23,18 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment()) {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c => {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "ORS V1");
+        // Set Swagger UI at the app's root
+        c.RoutePrefix = string.Empty;
+    });
 }
 
 app.UseHttpsRedirection();
 
 // Mapping
-app.MapGet("/", new Weather().Forecasts)
-    .WithName("GetWeatherForecast")
+app.MapGet("/authors", new AuthorApp().Authors)
+    .WithName("Mualliflar")
     .WithOpenApi();
 
 // Use controller

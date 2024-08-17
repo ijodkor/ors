@@ -2,9 +2,14 @@
 
 ## Installation and running
 
-Setup and configuration
-
-``cp appsettings.dev.json appsettings.json``
+1. Setup and configuration
+    ```bash
+    cp appsettings.dev.json appsettings.json
+    ```
+2. Run migrations:
+    ```bash
+    dotnet ef database update
+    ```
 
 ## Deploy
 
@@ -57,4 +62,5 @@ Migration create
 - [Classification of Regions](https://github.com/kenjebaev/regions)
 
 ### Issues
+
 - [Unable to locate package dotnet-sdk-8.0](https://stackoverflow.com/questions/77498786/unable-to-locate-package-dotnet-sdk-8-0)
