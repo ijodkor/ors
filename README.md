@@ -14,18 +14,17 @@ Setup and configuration
     dotnet publish -c Release -o /path/to/publish/directory
     ```
 
-2. Create a service file for this application:
+2. Create a service file for this application or just copy to systemd:
 
     ```bash 
-    sudo nano /etc/systemd/system/myapp.service
+    sudo nano /etc/systemd/system/ors-server.service
     ```
 
-3. Copy content of service which is located in deployment directory
-4. Start the service:
+3. Start the service:
     ```bash
    sudo systemctl start
     ```
-5. Enable the service to start on boot (after success):
+4. Enable the service to start on boot (after success):
     ```bash
    sudo systemctl enable myapp
     ```
@@ -56,3 +55,6 @@ Migration create
 - [Map in C#](https://www.c-sharpcorner.com/blogs/dictionary-and-maps-in-c-sharp)
 - [Dependency Injection](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-8.0)
 - [Classification of Regions](https://github.com/kenjebaev/regions)
+
+### Issues
+- [Unable to locate package dotnet-sdk-8.0](https://stackoverflow.com/questions/77498786/unable-to-locate-package-dotnet-sdk-8-0)
