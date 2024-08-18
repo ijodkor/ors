@@ -31,7 +31,7 @@
     ```
 4. Enable the service to start on boot (after success):
     ```bash
-   sudo systemctl enable myapp
+   sudo systemctl enable ors-server
     ```
 
 ## Working methods
