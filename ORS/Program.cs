@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ORS.Apps.Authors;
+using ORS.apps.MobileOperators;
 using ORS.Apps.Regions;
 using ORS.Database;
 
@@ -14,6 +15,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DatabaseContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<RegionService>();
+builder.Services.AddScoped<OperatorService>();
 
 // Register controllers
 builder.Services.AddControllers();
