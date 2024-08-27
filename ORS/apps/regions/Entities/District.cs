@@ -11,12 +11,9 @@ public class District() {
 
     public Dictionary<string, string> names { get; } = new();
 
-    public int order { get; set; } = 1;
-
     public District(Region region) : this() {
         id = region.Id;
         name = region.Name;
-        order = region.Order;
         provinceId = (int)region.ParentId!;
 
         names["uzl"] = region.NameUzl;

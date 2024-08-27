@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using ORS.Apps.Regions.Entities;
+using ORS.Apps.Regions.Models;
 
 namespace ORS.Apps.Regions;
 
@@ -9,8 +10,8 @@ namespace ORS.Apps.Regions;
 public class RegionController(RegionService service) : Controller {
     // GET
     [HttpGet]
-    public string[] Index() {
-        return [];
+    public async Task<List<RegionEntity>> Index() {
+        return await service.All();
     }
 
     [HttpGet("provinces")]
