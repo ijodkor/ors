@@ -31,6 +31,15 @@ public class RegionService(DatabaseContext _context) {
         return provinces;
     }
 
+    public async Task<Province?> GetProvinceById(int provinceId) {
+        var model = await db.Regions.FindAsync(provinceId);
+        if (model == null) {
+            return model;
+        }
+        
+        return new Province(model);
+    }
+
     public async Task<List<District>> Districts(int provinceId) {
         var models = await db.Regions
             .Where(region => region.ParentId == provinceId)
@@ -42,5 +51,13 @@ public class RegionService(DatabaseContext _context) {
         }
 
         return districts;
+    }
+
+    public async Task<District?> GetDistrictById(int districtId) {
+        var model = await db.Regions
+            .Where(region => region.Id == districtId && region.ParentId == null)
+            .FirstOrDefaultAsync();
+
+        return model == null ? null : new District(model);
     }
 }
