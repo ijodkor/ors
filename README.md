@@ -27,7 +27,7 @@
 
 3. Start the service:
     ```bash
-   sudo systemctl start
+   sudo systemctl start ors-server
     ```
 4. Enable the service to start on boot (after success):
     ```bash
