@@ -1,14 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using ORS.Apps.Regions.Entities;
+using ORS.core.Exceptions;
 using ORS.Database;
 
 namespace ORS.Apps.Regions;
 
-public class RegionService(DatabaseContext _context) {
-    private readonly DatabaseContext db = _context;
-
+public class RegionService(DatabaseContext context) {
     public async Task<List<RegionEntity>> All() {
-        var models = await db.Regions.ToListAsync();
+        var models = await context.Regions.ToListAsync();
 
         List<RegionEntity> regions = [];
         foreach (var model in models) {
@@ -19,7 +18,7 @@ public class RegionService(DatabaseContext _context) {
     }
 
     public async Task<List<Province>> Provinces() {
-        var models = await db.Regions
+        var models = await context.Regions
             .Where(region => region.ParentId == null)
             .ToListAsync();
 
@@ -31,17 +30,19 @@ public class RegionService(DatabaseContext _context) {
         return provinces;
     }
 
-    public async Task<Province?> GetProvinceById(int provinceId) {
-        var model = await db.Regions.FindAsync(provinceId);
+    public Province GetProvinceById(int id) {
+        var model = context.Regions
+            .FirstOrDefault(region => region.Id == id && region.ParentId == null);
+
         if (model == null) {
-            return model;
+            throw new ModelNotFoundException("No province found with given id!");
         }
-        
+
         return new Province(model);
     }
 
     public async Task<List<District>> Districts(int provinceId) {
-        var models = await db.Regions
+        var models = await context.Regions
             .Where(region => region.ParentId == provinceId)
             .ToListAsync();
 
@@ -53,11 +54,12 @@ public class RegionService(DatabaseContext _context) {
         return districts;
     }
 
-    public async Task<District?> GetDistrictById(int districtId) {
-        var model = await db.Regions
-            .Where(region => region.Id == districtId && region.ParentId == null)
-            .FirstOrDefaultAsync();
+    public District GetDistrictById(int districtId) {
+        var model = context.Regions
+            .FirstOrDefault(region => region.Id == districtId && region.ParentId != null);
 
-        return model == null ? null : new District(model);
+        return model == null
+            ? throw new ModelNotFoundException("District not found with given id!")
+            : new District(model);
     }
 }

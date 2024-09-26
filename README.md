@@ -60,6 +60,8 @@ Migration create
 - [Map in C#](https://www.c-sharpcorner.com/blogs/dictionary-and-maps-in-c-sharp)
 - [Dependency Injection](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-8.0)
 - [Classification of Regions](https://github.com/kenjebaev/regions)
+- [Custom status code response](https://www.telerik.com/blogs/return-json-result-custom-status-code-aspnet-core)
+- [Custom Response](https://medium.com/@nibasnazeem/handling-non-success-status-codes-with-custom-responses-in-asp-net-core-api-3b6f12700a2)
 
 ### Issues
 
