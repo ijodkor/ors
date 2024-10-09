@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using ORS.Apps.Authors;
+using ORS.Apps;
 using ORS.apps.MobileOperators;
 using ORS.Apps.Regions;
 using ORS.Database;
@@ -35,9 +35,10 @@ if (app.Environment.IsDevelopment()) {
 app.UseHttpsRedirection();
 
 // Mapping
-app.MapGet("/authors", new AuthorApp().Authors)
-    .WithName("Mualliflar")
-    .WithOpenApi();
+app.MapGet("/ping", new App().Ping)
+    .WithName("Tizim haqida")
+    .WithOpenApi()
+    .WithTags("Author");
 
 // Use controller
 app.MapControllers();
