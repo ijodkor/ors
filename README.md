@@ -66,3 +66,4 @@ Migration create
 ### Issues
 
 - [Unable to locate package dotnet-sdk-8.0](https://stackoverflow.com/questions/77498786/unable-to-locate-package-dotnet-sdk-8-0)
+- [Cors Allow](https://stackoverflow.com/questions/73405732/enable-cors-for-any-port-on-localhost-as-well-as-for-the-list-of-specific-domain)

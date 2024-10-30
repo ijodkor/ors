@@ -17,6 +17,9 @@ builder.Services.AddDbContext<DatabaseContext>(options =>
 builder.Services.AddScoped<RegionService>();
 builder.Services.AddScoped<OperatorService>();
 
+// Cors
+builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy.SetIsOriginAllowed(AllowedCors)));
+
 // Register controllers
 builder.Services.AddControllers();
 
@@ -34,6 +37,8 @@ if (app.Environment.IsDevelopment()) {
 
 app.UseHttpsRedirection();
 
+app.UseCors();
+
 // Mapping
 app.MapGet("/ping", new App().Ping)
     .WithName("Tizim haqida")
@@ -43,3 +48,8 @@ app.MapGet("/ping", new App().Ping)
 // Use controller
 app.MapControllers();
 app.Run();
+return;
+
+bool AllowedCors(string origin) {
+    return new Uri(origin).Host == "localhost" || origin == "127.0.0.1" || origin.EndsWith(".uz");
+}
