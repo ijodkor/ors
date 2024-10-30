@@ -14,7 +14,7 @@ public class AuthorController {
     public Author Index() {
         return new Author(
             Company: new Company(
-                Name: "Anvar",
+                Name: "Raqamli taraqqiyot MCHJ",
                 Phone: "995123264",
                 Tin: 311128291,
                 Ifut: 62010
