@@ -51,5 +51,8 @@ app.Run();
 return;
 
 bool AllowedCors(string origin) {
-    return new Uri(origin).Host == "localhost" || origin == "127.0.0.1" || origin.EndsWith(".uz");
+    return new Uri(origin).Host == "localhost"
+        || new Uri(origin).Host == "127.0.0.1"
+        || new Uri(origin).Host.StartsWith("192.168.1.")
+        || origin.EndsWith(".uz");
 }
