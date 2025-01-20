@@ -6,14 +6,16 @@ public class RegionEntity() {
     public int id { get; set; }
 
     public string name { get; set; }
+    
+    public int? ParentId { get; set; }
 
     public Dictionary<string, string> names { get; } = new();
 
     public RegionEntity(Region region) : this() {
         id = region.Id;
         name = region.Name;
-        // provinceId = (int)region.ParentId!;
-
+        ParentId = region.ParentId;
+        
         names["uzl"] = region.NameUzl;
         names["uzk"] = region.NameUzk;
         names["ru"] = region.NameRu;

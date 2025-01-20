@@ -3,18 +3,18 @@ using ORS.Apps.Regions.Models;
 namespace ORS.Apps.Regions.Entities;
 
 public class Province() {
-    public int id { get; set; }
+    public int Id { get; set; }
 
-    public string name { get; set; }
+    public string Name { get; set; }
 
-    public Dictionary<string, string> names { get; } = new();
+    public Dictionary<string, string> Names { get; } = new();
 
     public Province(Region region) : this() {
-        id = region.Id;
-        name = region.Name;
+        Id = region.Id;
+        Name = region.Name;
 
-        names["uzl"] = region.NameUzl;
-        names["uzk"] = region.NameUzk;
-        names["ru"] = region.NameRu;
+        Names["uzl"] = region.NameUzl;
+        Names["uzk"] = region.NameUzk;
+        Names["ru"] = region.NameRu;
     }
 }

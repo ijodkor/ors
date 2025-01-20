@@ -9,6 +9,12 @@ obj/
 riderModule.iml
 /_ReSharper.Caches/
 
+# Builds
+release
+
+# Bundle files
+track.txt
+
 
 # Environment variables
 ORS/appsettings.json

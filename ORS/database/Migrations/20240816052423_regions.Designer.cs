@@ -13,7 +13,7 @@ namespace ORS.database.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
     [Migration("20240816052423_regions")]
-    partial class regions
+    partial class Regions
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

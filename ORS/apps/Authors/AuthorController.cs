@@ -28,13 +28,13 @@ public class AuthorController {
     }
 
     [HttpGet("/developers")]
-    public Developer[] Authors() {
-        var forecast = Enumerable.Range(1, AuthorList.Length).Select(index => new Developer(
+    public Developer[] Developers() {
+        var developers = Enumerable.Range(1, AuthorList.Length).Select(index => new Developer(
                 AuthorList[Random.Shared.Next(AuthorList.Length)],
                 DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
                 Random.Shared.Next(-20, 55)
             ))
             .ToArray();
-        return forecast;
+        return developers;
     }
 }
