@@ -17,5 +17,5 @@ public class Region {
 
     [Column("name_ru")] public string NameRu { get; set; }
 
-    [Column("order")] public int Order { get; set; } = 1;
+    [Column("ord")] public int Order { get; set; } = 1;
 }

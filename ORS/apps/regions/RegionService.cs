@@ -7,7 +7,9 @@ namespace ORS.Apps.Regions;
 
 public class RegionService(DatabaseContext context) {
     public async Task<List<RegionEntity>> All() {
-        var models = await context.Regions.ToListAsync();
+        var models = await context.Regions
+            .OrderBy(region => region.Order)
+            .ToListAsync();
 
         List<RegionEntity> regions = [];
         foreach (var model in models) {
