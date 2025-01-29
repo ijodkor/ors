@@ -23,6 +23,9 @@ builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy.Se
 // Register controllers
 builder.Services.AddControllers();
 
+// Enable Swagger annatations
+builder.Services.AddSwaggerGen(options => { options.EnableAnnotations(); });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -52,7 +55,7 @@ return;
 
 bool AllowedCors(string origin) {
     return new Uri(origin).Host == "localhost"
-        || new Uri(origin).Host == "127.0.0.1"
-        || new Uri(origin).Host.StartsWith("192.168.1.")
-        || origin.EndsWith(".uz");
+           || new Uri(origin).Host == "127.0.0.1"
+           || new Uri(origin).Host.StartsWith("192.168.1.")
+           || origin.EndsWith(".uz");
 }

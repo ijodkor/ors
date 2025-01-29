@@ -1,15 +1,24 @@
 # Open Resource Server
 
-## Installation and running
+## Installation and setup
 
-1. Setup and configuration
-    ```bash
-    cp appsettings.dev.json appsettings.json
-    ```
-2. Run migrations:
-    ```bash
-    dotnet ef database update
-    ```
+Setup and configuration
+
+```bash
+cp appsettings.dev.json appsettings.json
+```
+
+Install dependecies
+
+```bash
+dotnet restore
+```
+
+Run migrations:
+
+```bash
+dotnet ef database update
+```
 
 ## Deploy
 
@@ -62,6 +71,7 @@ Migration create
 - [Classification of Regions](https://github.com/kenjebaev/regions)
 - [Custom status code response](https://www.telerik.com/blogs/return-json-result-custom-status-code-aspnet-core)
 - [Custom Response](https://medium.com/@nibasnazeem/handling-non-success-status-codes-with-custom-responses-in-asp-net-core-api-3b6f12700a2)
+- [Optional query param](https://stackoverflow.com/questions/11862069/optional-query-string-parameters-in-asp-net-web-api)
 
 ### Issues
 

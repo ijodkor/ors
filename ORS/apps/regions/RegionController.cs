@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using ORS.Apps.Regions.Dto;
 using ORS.Apps.Regions.Entities;
 using ORS.core.Entities;
 using ORS.core.Exceptions;
@@ -16,28 +17,28 @@ public class RegionController(RegionService service) : Controller {
     }
 
     [HttpGet("provinces")]
-    public async Task<List<Province>> Provinces() {
-        return await service.Provinces();
+    public async Task<List<Province>> Provinces([FromQuery] LangDto dto) {
+        return await service.Provinces(dto);
     }
 
     [HttpGet("provinces/{id}")]
-    public IActionResult Province(int id) {
+    public IActionResult Province(int id, [FromQuery] LangDto dto) {
         try {
-            return Ok(service.GetProvinceById(id));
+            return Ok(service.GetProvinceById(id, dto));
         } catch (ModelNotFoundException e) {
             return NotFound(new NotFoundEntity(e.Message));
         }
     }
 
     [HttpGet("districts")]
-    public async Task<List<District>> Districts([BindRequired, FromQuery(Name = "provinceId")] int provinceId) {
-        return await service.Districts(provinceId);
+    public async Task<List<District>> Districts([BindRequired, FromQuery(Name = "provinceId")] int provinceId, [FromQuery] LangDto dto) {
+        return await service.Districts(provinceId, dto);
     }
 
     [HttpGet("districts/{districtId}")]
-    public IActionResult District([BindRequired] int districtId) {
+    public IActionResult District([BindRequired] int districtId, [FromQuery] LangDto dto) {
         try {
-            return Ok(service.GetDistrictById(districtId));
+            return Ok(service.GetDistrictById(districtId, dto));
         } catch (ModelNotFoundException e) {
             return StatusCode(StatusCodes.Status404NotFound, new NotFoundEntity(e.Message));
         }

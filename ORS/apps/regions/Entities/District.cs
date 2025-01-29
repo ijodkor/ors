@@ -6,18 +6,25 @@ public class District() {
     public int Id { get; set; }
 
     public string Name { get; set; }
+    public string ShortName { get; set; }
 
     public int ProvinceId { get; set; }
 
-    public Dictionary<string, string> Names { get; } = new();
+    private Dictionary<string, string> Names { get; } = new();
 
-    public District(Region region) : this() {
+    public District(Region region, string lang) : this() {
         Id = region.Id;
-        Name = region.Name;
         ProvinceId = (int)region.ParentId!;
+        
+        Name = region.NameUzl;
+        ShortName = region.Name;
 
         Names["uzl"] = region.NameUzl;
         Names["uzk"] = region.NameUzk;
         Names["ru"] = region.NameRu;
+        
+        if (Names.ContainsKey(lang)) {
+            Name = Names[lang];
+        }
     }
 }
