@@ -16,6 +16,7 @@ builder.Services.AddDbContext<DatabaseContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<RegionService>();
 builder.Services.AddScoped<OperatorService>();
+builder.Services.AddScoped<QuarterService>();
 
 // Cors
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy.SetIsOriginAllowed(AllowedCors)));
@@ -23,7 +24,7 @@ builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy.Se
 // Register controllers
 builder.Services.AddControllers();
 
-// Enable Swagger annatations
+// Enable Swagger annotations
 builder.Services.AddSwaggerGen(options => { options.EnableAnnotations(); });
 
 var app = builder.Build();

@@ -72,6 +72,8 @@ Migration create
 - [Custom status code response](https://www.telerik.com/blogs/return-json-result-custom-status-code-aspnet-core)
 - [Custom Response](https://medium.com/@nibasnazeem/handling-non-success-status-codes-with-custom-responses-in-asp-net-core-api-3b6f12700a2)
 - [Optional query param](https://stackoverflow.com/questions/11862069/optional-query-string-parameters-in-asp-net-web-api)
+- [OFY va MFY](https://yuz.uz/uz/news/shahar-va-qishloqlarda-nechta-mahalla-bor-qanchasi-togli-chol-va-chegara-hududida-joylashgan)
+- [Jsonb in Postgres EF Core](https://medium.com/@serhiikokhan/jsonb-in-postgresql-with-ef-core-cc945f1aba2a)
 
 ### Issues
 

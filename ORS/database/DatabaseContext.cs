@@ -5,6 +5,7 @@ namespace ORS.Database;
 
 public class DatabaseContext(DbContextOptions<DatabaseContext> options) : DbContext(options) {
     public DbSet<Region> Regions { get; set; }
+    public DbSet<Quarter> Quarters { get; set; }
 
     // protected internal virtual void OnModelCreating(ModelBuilder modelBuilder)
     protected override void OnModelCreating(ModelBuilder modelBuilder) {
