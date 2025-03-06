@@ -6,10 +6,10 @@ namespace ORS.Apps.Regions.Models;
 
 [Table("quarters")]
 public class Quarter {
-    private const short TYPE_COUNTRYSIDE = 1;
-    private const short TYPE_CITY = 2;
-    private const short TYPE_NEIGHBORHOOD = 3;
-    private const short TYPE_VILLAGE = 4;
+    public const short TYPE_COUNTRYSIDE = 1;   // QFY
+    public const short TYPE_CITY = 2;          // SHFY
+    public const short TYPE_NEIGHBORHOOD = 3;  // MFY
+    public const short TYPE_VILLAGE = 4;       // OFY
     
     [Column("id")]
     public int Id { get; set; }

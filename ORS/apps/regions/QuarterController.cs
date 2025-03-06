@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using ORS.Apps.Regions.Dto;
-using ORS.Apps.Regions.Entities;
 using ORS.core.Entities;
 using ORS.core.Exceptions;
 
@@ -11,20 +10,31 @@ namespace ORS.Apps.Regions;
 public class QuarterController(QuarterService service) : Controller {
     // GET
     [HttpGet]
-    public async Task<List<QuarterEntity>> Index() {
-        return await service.All();
+    public async Task<IActionResult> Index([FromQuery] EntityListDto dto) {
+        var meta = await service.GetMeta(dto);
+        var quarters = await service.All(dto);
+        
+        return Ok(
+            new {
+                data = new {
+                    quarters
+                },
+                meta
+            }
+        );
     }
 
     [HttpGet("neighborhoods")]
-    public async Task<List<Neighborhood>> Neighborhoods([FromQuery] LangDto dto) {
-        return await service.Neighborhoods(dto);
+    public async Task<IActionResult> Neighborhoods([FromQuery] LangDto dto) {
+        return Ok(await service.Neighborhoods(dto));
     }
 
     [HttpGet("neighborhoods/{id}")]
     public IActionResult Neighborhood(int id, [FromQuery] LangDto dto) {
         try {
             return Ok(service.GetNeighborhoodById(id, dto));
-        } catch (ModelNotFoundException e) {
+        }
+        catch (ModelNotFoundException e) {
             return NotFound(new NotFoundEntity(e.Message));
         }
     }

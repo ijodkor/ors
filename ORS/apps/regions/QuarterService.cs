@@ -1,16 +1,18 @@
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using ORS.Apps.Regions.Dto;
 using ORS.Apps.Regions.Entities;
-using ORS.Apps.Regions.Models;
 using ORS.core.Exceptions;
 using ORS.Database;
 
 namespace ORS.Apps.Regions;
 
 public class QuarterService(DatabaseContext context) {
-    public async Task<List<QuarterEntity>> All() {
+    public async Task<List<QuarterEntity>> All(EntityListDto dto) {
         var models = await context.Quarters
             .OrderBy(model => model.Order)
+            .Skip((dto.Page - 1) * dto.Limit)
+            .Take(dto.Limit)
             .ToListAsync();
 
         List<QuarterEntity> quarters = [];
@@ -21,8 +23,29 @@ public class QuarterService(DatabaseContext context) {
         return quarters;
     }
 
+    public async Task<object> GetMeta(EntityListDto dto) {
+        int count = await context.Quarters
+            .CountAsync();
+        
+        int pages = count / dto.Limit;
+        int previous = dto.Page > 1 ? dto.Page - 1 : 1;
+        int last = pages > 1 ? pages : 1;
+
+        return new {
+            previous,
+            current = dto.Page,
+            last,
+            limit = dto.Limit,
+            pages,
+            total = count
+        };
+    }
+
     public async Task<List<Neighborhood>> Neighborhoods(LangDto dto) {
-        var models = await context.Quarters.ToListAsync();
+        var models = await context.Quarters
+            .OrderBy(model => model.Order)
+            .Take(200)
+            .ToListAsync();
 
         List<Neighborhood> neighborhoods = [];
         foreach (var model in models) {
