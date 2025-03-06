@@ -11,7 +11,7 @@ public class EntityListDto {
     
     [FromQuery(Name = "page")]
     [Range(1, 1000, ErrorMessage = "Page must be greater than 1 and less than 1000.")]
-    [SwaggerParameter(Description = "Page = 10")]
+    [SwaggerParameter(Description = "Page - [1, 1000]")]
     public int Page { get; set; } = 1;
     
     [SwaggerIgnore]

@@ -25,7 +25,7 @@ public class QuarterController(QuarterService service) : Controller {
     }
 
     [HttpGet("neighborhoods")]
-    public async Task<IActionResult> Neighborhoods([FromQuery] LangDto dto) {
+    public async Task<IActionResult> Neighborhoods([FromQuery] EntityListDto dto) {
         return Ok(await service.Neighborhoods(dto));
     }
 

@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using ORS.Apps.Regions.Dto;
 using ORS.Apps.Regions.Entities;
@@ -10,7 +9,7 @@ namespace ORS.Apps.Regions;
 public class QuarterService(DatabaseContext context) {
     public async Task<List<QuarterEntity>> All(EntityListDto dto) {
         var models = await context.Quarters
-            .OrderBy(model => model.Order)
+            .OrderBy(model => model.Order).ThenBy(model => model.Id)
             .Skip((dto.Page - 1) * dto.Limit)
             .Take(dto.Limit)
             .ToListAsync();
@@ -24,27 +23,26 @@ public class QuarterService(DatabaseContext context) {
     }
 
     public async Task<object> GetMeta(EntityListDto dto) {
-        int count = await context.Quarters
+        var count = await context.Quarters
             .CountAsync();
-        
-        int pages = count / dto.Limit;
-        int previous = dto.Page > 1 ? dto.Page - 1 : 1;
-        int last = pages > 1 ? pages : 1;
+
+        var pages = count / dto.Limit;
+        var previous = dto.Page > 1 ? dto.Page - 1 : 1;
+        var last = pages > 1 ? pages : 1;
 
         return new {
             previous,
             current = dto.Page,
             last,
             limit = dto.Limit,
-            pages,
             total = count
         };
     }
 
-    public async Task<List<Neighborhood>> Neighborhoods(LangDto dto) {
+    public async Task<List<Neighborhood>> Neighborhoods(EntityListDto dto) {
         var models = await context.Quarters
             .OrderBy(model => model.Order)
-            .Take(200)
+            .Take(dto.Limit)
             .ToListAsync();
 
         List<Neighborhood> neighborhoods = [];
