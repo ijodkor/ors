@@ -74,6 +74,7 @@ Migration create
 - [Optional query param](https://stackoverflow.com/questions/11862069/optional-query-string-parameters-in-asp-net-web-api)
 - [OFY va MFY](https://yuz.uz/uz/news/shahar-va-qishloqlarda-nechta-mahalla-bor-qanchasi-togli-chol-va-chegara-hududida-joylashgan)
 - [Jsonb in Postgres EF Core](https://medium.com/@serhiikokhan/jsonb-in-postgresql-with-ef-core-cc945f1aba2a)
+- [Split part](https://w3resource.com/PostgreSQL/split_part-function.php)
 
 ### Issues
 
