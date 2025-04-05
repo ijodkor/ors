@@ -17,5 +17,8 @@ public class Region {
 
     [Column("name_ru")] public string NameRu { get; set; }
 
+    [Column("latitude")] public double Latitude { get; set; } = 0;
+
+    [Column("longitude")] public double Longitude { get; set; } = 0;
     [Column("ord")] public int Order { get; set; } = 1;
 }

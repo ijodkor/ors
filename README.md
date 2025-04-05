@@ -60,6 +60,7 @@ Migration create
 - [Naming namespace](https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-namespaces)
 - [Name classes](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/identifier-names)
 - [Migrations](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli)
+- [Nominatim](https://nominatim.org/release-docs/develop/api/Search/)
 
 ### Links
 
@@ -80,3 +81,4 @@ Migration create
 
 - [Unable to locate package dotnet-sdk-8.0](https://stackoverflow.com/questions/77498786/unable-to-locate-package-dotnet-sdk-8-0)
 - [Cors Allow](https://stackoverflow.com/questions/73405732/enable-cors-for-any-port-on-localhost-as-well-as-for-the-list-of-specific-domain)
+- [dotnet-ef not found](https://stackoverflow.com/questions/57066856/command-dotnet-ef-not-found)

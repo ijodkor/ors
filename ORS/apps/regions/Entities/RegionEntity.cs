@@ -9,6 +9,8 @@ public class RegionEntity() {
     
     public int? ParentId { get; set; }
     public int Rank { get; set; }
+    public double Latitude { get; set; }
+    public double Longitude { get; set; }
 
     public Dictionary<string, string> names { get; } = new();
 
@@ -17,6 +19,8 @@ public class RegionEntity() {
         name = region.Name;
         ParentId = region.ParentId;
         Rank = region.Order;
+        Latitude = region.Latitude;
+        Longitude = region.Longitude;
         
         names["uzl"] = region.NameUzl;
         names["uzk"] = region.NameUzk;

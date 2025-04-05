@@ -17,4 +17,4 @@ track.txt
 
 
 # Environment variables
-ORS/appsettings.json
+ORS/appsettings.*.json
