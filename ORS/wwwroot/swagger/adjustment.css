@@ -1,0 +1,42 @@
+footer a {
+    text-decoration: none;
+    color: black;
+}
+
+footer {
+    margin-bottom: .5rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.jc-between {
+    justify-content: space-between;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 236, 236, 0.25);
+    padding: 0.75rem;
+}
+
+/* Measures */
+.ml-2 {
+    margin-left: 0.5rem;
+}
+
+.my-auto {
+    margin-top: auto;
+    margin-bottom: auto;
+}

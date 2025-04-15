@@ -36,15 +36,23 @@ if (app.Environment.IsDevelopment()) {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "ORS V1");
         // Set Swagger UI at the app's root
         c.RoutePrefix = string.Empty;
+        
+        // Custom js
+        c.InjectJavascript("/swagger/adjustment.js");
+        c.InjectStylesheet("/swagger/adjustment.css");
     });
 }
 
+// Allow static files
+app.UseStaticFiles();
+
 app.UseHttpsRedirection();
 
+// Cors
 app.UseCors();
 
 // Mapping
-app.MapGet("/ping", new App().Ping)
+app.MapGet("/api/ping", new App().Ping)
     .WithName("Tizim haqida")
     .WithOpenApi()
     .WithTags("Author");
