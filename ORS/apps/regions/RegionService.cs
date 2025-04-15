@@ -65,4 +65,24 @@ public class RegionService(DatabaseContext context) {
             ? throw new ModelNotFoundException("District not found with given id!")
             : new District(model, dto.Lang);
     }
+
+    public District GetByLocation(float lat, float lon, LangDto query) {
+        // Multiline
+        var model = context.Regions
+            .FromSqlRaw(@"
+                SELECT *, 6371 * 2 * ASIN(
+                    SQRT(
+                        POWER(SIN(RADIANS(({0} - latitude) / 2)), 2) +
+                        COS(RADIANS(latitude)) * COS(RADIANS({0})) *
+                        POWER(SIN(RADIANS(({1} - longitude) / 2)), 2)
+                    )
+                ) AS distance
+                from regions where parent_id is not null
+                order by distance
+            ", lat, lon)
+            .FirstOrDefault();
+        return model == null
+            ? throw new ModelNotFoundException("District not found with given id!")
+            : new District(model, query.Lang);
+    }
 }

@@ -43,4 +43,13 @@ public class RegionController(RegionService service) : Controller {
             return StatusCode(StatusCodes.Status404NotFound, new NotFoundEntity(e.Message));
         }
     }
+    
+    [HttpGet("by-location")]
+    public IActionResult ByLocation([FromQuery] LocationDto dto, [FromQuery] LangDto query) {
+        try {
+            return Ok(service.GetByLocation(dto.Latitude, dto.Longitude, query));
+        } catch (ModelNotFoundException e) {
+            return StatusCode(StatusCodes.Status404NotFound, new NotFoundEntity(e.Message));
+        }
+    }
 }
