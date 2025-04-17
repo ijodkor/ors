@@ -47,6 +47,7 @@ public class RegionService(DatabaseContext context) {
     public async Task<List<District>> Districts(int provinceId, LangDto dto) {
         var models = await context.Regions
             .Where(region => region.ParentId == provinceId)
+            .OrderBy(region => region.Id)
             .ToListAsync();
 
         List<District> districts = [];
