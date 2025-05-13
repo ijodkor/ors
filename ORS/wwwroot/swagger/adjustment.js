@@ -5,7 +5,7 @@ addEventListener('DOMContentLoaded', () => {
     const footer = document.createElement('footer');
     footer.innerHTML = `
         <div class="flex container jc-between">
-            <div class="my-auto">Raqamli taraqqiyot MCHJ &copy; 2024-${date.getFullYear()}</div>
+            <div class="my-auto">Raqamli taraqqiyot &copy; 2024-${date.getFullYear()}</div>
             <div class="flex items-center btn">
                 <a class="flex items-center" href="https://github.com/ijodkor/ors" target="_blank">
                     <svg height="32" aria-hidden="true" viewBox="0 0 24 24" width="32" data-view-component="true">
