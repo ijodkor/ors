@@ -10,24 +10,7 @@ public class AuthorController {
         "Anvar"
     };
 
-    [HttpGet]
-    public Author Index() {
-        return new Author(
-            Company: new Company(
-                Name: "Raqamli taraqqiyot MCHJ",
-                Phone: "995123264",
-                Tin: 311128291,
-                Ifut: 62010
-            ),
-            Requisites: new Requisites(
-                Account: "20208000107012884001",
-                Bank: "Hamkorbank ATB",
-                BankCode: "00083"
-            )
-        );
-    }
-
-    [HttpGet("/developers")]
+    [HttpGet("developers")]
     public Developer[] Developers() {
         var developers = Enumerable.Range(1, AuthorList.Length).Select(index => new Developer(
                 AuthorList[Random.Shared.Next(AuthorList.Length)],
