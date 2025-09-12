@@ -8,7 +8,7 @@ public class RegionEntity() {
     public string name { get; set; }
     
     public int? ParentId { get; set; }
-    public int Rank { get; set; }
+    public int Order { get; set; }
     public double Latitude { get; set; }
     public double Longitude { get; set; }
 
@@ -18,7 +18,7 @@ public class RegionEntity() {
         id = region.Id;
         name = region.Name;
         ParentId = region.ParentId;
-        Rank = region.Order;
+        Order = region.Order;
         Latitude = region.Latitude;
         Longitude = region.Longitude;
         
