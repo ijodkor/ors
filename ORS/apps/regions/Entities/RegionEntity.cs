@@ -13,6 +13,7 @@ public class RegionEntity() {
     public double Longitude { get; set; }
 
     public Dictionary<string, string> names { get; } = new();
+    public Dictionary<string, string> ShortName { get; set; } = new();
 
     public RegionEntity(Region region) : this() {
         id = region.Id;
@@ -25,5 +26,7 @@ public class RegionEntity() {
         names["uzl"] = region.NameUzl;
         names["uzk"] = region.NameUzk;
         names["ru"] = region.NameRu;
+
+        ShortName = region.ShortName;
     }
 }
