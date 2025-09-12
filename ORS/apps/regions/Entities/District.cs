@@ -9,12 +9,14 @@ public class District() {
     public string ShortName { get; set; }
 
     public int ProvinceId { get; set; }
+    public int RegionId { get; set; }
 
     private Dictionary<string, string> Names { get; } = new();
 
     public District(Region region, string lang) : this() {
         Id = region.Id;
         ProvinceId = (int)region.ParentId!;
+        RegionId = (int)region.ParentId!;
         
         Name = region.NameUzl;
         ShortName = region.Name;
