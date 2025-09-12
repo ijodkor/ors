@@ -3,6 +3,7 @@ using ORS.Apps;
 using ORS.apps.MobileOperators;
 using ORS.Apps.Regions;
 using ORS.Database;
+using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Enable JSON mapping globally (must be BEFORE AddDbContext / UseNpgsql)
+NpgsqlConnection.GlobalTypeMapper.EnableDynamicJson();
 
 // Register DI services
 builder.Services.AddDbContext<DatabaseContext>(options =>
