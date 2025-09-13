@@ -23,7 +23,7 @@ public class RegionEntity() {
         Name["uz"] = region.NameUzl;
         Name["uzk"] = region.NameUzk;
         Name["ru"] = region.NameRu;
-        Name["en"] = region.NameUzk;
+        Name["en"] = region.Name;
         Name["kaa"] = region.NameUzk;
 
         ShortName = region.ShortName;
