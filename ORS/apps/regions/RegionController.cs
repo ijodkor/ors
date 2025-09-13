@@ -22,7 +22,7 @@ public class RegionController(RegionService service) : Controller {
     }
 
     [HttpGet("districts")]
-    public async Task<List<District>> Districts([BindRequired, FromQuery(Name = "provinceId")] int provinceId, [FromQuery(Name = "regionId")] int regionId, [FromQuery] LangDto dto) {
+    public async Task<List<District>> Districts([FromQuery(Name = "provinceId")] int provinceId, [FromQuery(Name = "regionId")] int regionId, [FromQuery] LangDto dto) {
         if (regionId == 0) {
             regionId = provinceId;
         }
