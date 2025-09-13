@@ -18,8 +18,8 @@ public class Province() {
         Names["uzl"] = region.NameUzl;
         Names["uzk"] = region.NameUzk;
         Names["ru"] = region.NameRu;
-        Names["en"] = region.NameRu;
-        Names["qq"] = region.NameRu;
+        Names["en"] = region.Name;
+        Names["kaa"] = region.Name;
 
         if (Names.ContainsKey(lang)) {
             Name = Names[lang];

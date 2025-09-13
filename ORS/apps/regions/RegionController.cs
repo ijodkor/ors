@@ -21,24 +21,15 @@ public class RegionController(RegionService service) : Controller {
         return await service.Provinces(dto);
     }
 
-    [HttpGet("provinces/{id}")]
-    public IActionResult Province(int id, [FromQuery] LangDto dto) {
-        try {
-            return Ok(service.GetProvinceById(id, dto));
-        } catch (ModelNotFoundException e) {
-            return NotFound(new NotFoundEntity(e.Message));
-        }
-    }
-
     [HttpGet("districts")]
     public async Task<List<District>> Districts([BindRequired, FromQuery(Name = "provinceId")] int provinceId, [FromQuery] LangDto dto) {
         return await service.Districts(provinceId, dto);
     }
 
-    [HttpGet("districts/{districtId}")]
-    public IActionResult District([BindRequired] int districtId, [FromQuery] LangDto dto) {
+    [HttpGet("{id}")]
+    public IActionResult District([BindRequired] int id, [FromQuery] LangDto dto) {
         try {
-            return Ok(service.GetDistrictById(districtId, dto));
+            return Ok(service.FindById(id, dto));
         } catch (ModelNotFoundException e) {
             return StatusCode(StatusCodes.Status404NotFound, new NotFoundEntity(e.Message));
         }

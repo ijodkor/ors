@@ -33,17 +33,6 @@ public class RegionService(DatabaseContext context) {
         return provinces;
     }
 
-    public Province GetProvinceById(int id, LangDto dto) {
-        var model = context.Regions
-            .FirstOrDefault(region => region.Id == id && region.ParentId == null);
-
-        if (model == null) {
-            throw new ModelNotFoundException("No province found with given id!");
-        }
-
-        return new Province(model, dto.Lang);
-    }
-
     public async Task<List<District>> Districts(int provinceId, LangDto dto) {
         var models = await context.Regions
             .Where(region => region.ParentId == provinceId)
@@ -58,12 +47,12 @@ public class RegionService(DatabaseContext context) {
         return districts;
     }
 
-    public District GetDistrictById(int districtId, LangDto dto) {
+    public District FindById(int id, LangDto dto) {
         var model = context.Regions
-            .FirstOrDefault(region => region.Id == districtId && region.ParentId != null);
+            .FirstOrDefault(region => region.Id == id);
 
         return model == null
-            ? throw new ModelNotFoundException("District not found with given id!")
+            ? throw new ModelNotFoundException("Region is not found with given id!")
             : new District(model, dto.Lang);
     }
 
