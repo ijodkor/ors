@@ -22,8 +22,12 @@ public class RegionController(RegionService service) : Controller {
     }
 
     [HttpGet("districts")]
-    public async Task<List<District>> Districts([BindRequired, FromQuery(Name = "provinceId")] int provinceId, [FromQuery] LangDto dto) {
-        return await service.Districts(provinceId, dto);
+    public async Task<List<District>> Districts([BindRequired, FromQuery(Name = "provinceId")] int provinceId, [FromQuery(Name = "regionId")] int regionId, [FromQuery] LangDto dto) {
+        if (regionId == 0) {
+            regionId = provinceId;
+        }
+
+        return await service.Districts(regionId, dto);
     }
 
     [HttpGet("{id}")]
