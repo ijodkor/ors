@@ -9,7 +9,8 @@ namespace ORS.Apps.Regions;
 public class QuarterService(DatabaseContext context) {
     public async Task<List<QuarterEntity>> All(EntityListDto dto) {
         var models = await context.Quarters
-            .OrderBy(model => model.Order).ThenBy(model => model.Id)
+            .OrderBy(model => model.Order)
+            .ThenBy(model => model.Id)
             .Skip((dto.Page - 1) * dto.Limit)
             .Take(dto.Limit)
             .ToListAsync();

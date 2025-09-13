@@ -23,6 +23,8 @@ public class RegionService(DatabaseContext context) {
     public async Task<List<Province>> Provinces(LangDto dto) {
         var models = await context.Regions
             .Where(region => region.ParentId == null)
+            .OrderBy(model => model.Order)
+            .ThenBy(model => model.Id)
             .ToListAsync();
 
         List<Province> provinces = [];
