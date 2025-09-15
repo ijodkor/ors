@@ -9,6 +9,7 @@ namespace ORS.Apps.Regions;
 public class RegionService(DatabaseContext context) {
     public async Task<List<RegionEntity>> All() {
         var models = await context.Regions
+            .Where(region => region.DeletedAt == null)
             .OrderBy(region => region.Order)
             .ToListAsync();
 
@@ -37,7 +38,7 @@ public class RegionService(DatabaseContext context) {
 
     public async Task<List<District>> Districts(int provinceId, LangDto dto) {
         var models = await context.Regions
-            .Where(region => region.ParentId == provinceId)
+            .Where(region => region.ParentId == provinceId && region.DeletedAt == null)
             .OrderBy(region => region.Id)
             .ToListAsync();
 

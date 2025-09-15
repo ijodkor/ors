@@ -25,4 +25,7 @@ public class Region {
     [Column("longitude")] public double Longitude { get; set; } = 0;
     
     [Column("ord")] public int Order { get; set; } = 1;
+
+    [Column("deleted_at")]
+    public DateTime? DeletedAt { get; set; }
 }
