@@ -82,15 +82,15 @@ namespace ORS.database.Migrations
                         .HasColumnType("text")
                         .HasColumnName("name_ru");
 
-                    b.Property<string>("NameUzk")
+                    b.Property<string>("NameUzc")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("name_uzk");
+                        .HasColumnName("name_uzc");
 
-                    b.Property<string>("NameUzl")
+                    b.Property<string>("NameUz")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("name_uzl");
+                        .HasColumnName("name_uz");
 
                     b.Property<int>("Order")
                         .HasColumnType("integer")

@@ -20,11 +20,11 @@ public class RegionEntity() {
         Latitude = region.Latitude;
         Longitude = region.Longitude;
         
-        Name["uz"] = region.NameUzl;
-        Name["uzc"] = region.NameUzk;
+        Name["uz"] = region.NameUz;
+        Name["uzc"] = region.NameUzc;
         Name["ru"] = region.NameRu;
         Name["en"] = region.Name;
-        Name["kaa"] = region.NameUzk;
+        Name["kaa"] = region.NameUzc;
 
         ShortName = region.ShortName;
     }

@@ -23,8 +23,8 @@ namespace ORS.database.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     parent_id = table.Column<int>(type: "integer", nullable: true),
                     name = table.Column<string>(type: "text", nullable: false),
-                    name_uzl = table.Column<string>(type: "text", nullable: false),
-                    name_uzk = table.Column<string>(type: "text", nullable: false),
+                    name_uz = table.Column<string>(type: "text", nullable: false),
+                    name_uzc = table.Column<string>(type: "text", nullable: false),
                     name_ru = table.Column<string>(type: "text", nullable: false),
                     order = table.Column<int>(type: "integer", nullable: false, defaultValue: 1)
                 },

@@ -11,9 +11,9 @@ public class Region {
 
     [Column("name")] [Required] public string Name { get; set; }
 
-    [Column("name_uzl")] public string NameUzl { get; set; }
+    [Column("name_uz")] public string NameUz { get; set; }
 
-    [Column("name_uzk")] public string NameUzk { get; set; }
+    [Column("name_uzc")] public string NameUzc { get; set; }
 
     [Column("name_ru")] public string NameRu { get; set; }
 

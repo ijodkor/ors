@@ -18,11 +18,11 @@ public class District() {
         ProvinceId = region.ParentId;
         RegionId = region.ParentId;
         
-        Name = region.NameUzl;
+        Name = region.NameUz;
         ShortName = region.Name;
 
-        Names["uz"] = region.NameUzl;
-        Names["uzc"] = region.NameUzk;
+        Names["uz"] = region.NameUz;
+        Names["uzc"] = region.NameUzc;
         Names["ru"] = region.NameRu;
         Names["en"] = region.Name;
         Names["kaa"] = region.Name;
