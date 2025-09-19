@@ -46,7 +46,7 @@ public class QuarterEntity {
     private Dictionary<string, string> GetCountrySide() {
         return new Dictionary<string, string> {
             ["uz"] = "QFY",
-            ["uzk"] = "ҚФЙ",
+            ["uzc"] = "ҚФЙ",
             ["ru"] = "ҚФЙ",
             ["en"] = "OFY",
             ["qq"] = "ҚФЙ"
@@ -56,7 +56,7 @@ public class QuarterEntity {
     private Dictionary<string, string> GetVillageSide() {
         return new Dictionary<string, string> {
             ["uz"] = "OFY",
-            ["uzk"] = "ОФЙ",
+            ["uzc"] = "ОФЙ",
             ["ru"] = "ОФЙ",
             ["en"] = "OFY",
             ["qq"] = "ОФЙ"
@@ -66,7 +66,7 @@ public class QuarterEntity {
     private Dictionary<string, string> GetCitySide() {
         return new Dictionary<string, string> {
             ["uz"] = "SHFY",
-            ["uzk"] = "ШФЙ",
+            ["uzc"] = "ШФЙ",
             ["ru"] = "ШФЙ",
             ["en"] = "SHFY",
             ["qq"] = "ШФЙ"
@@ -76,7 +76,7 @@ public class QuarterEntity {
     private Dictionary<string, string> GetNeighbourhood() {
         return new Dictionary<string, string> {
             ["uz"] = "MFY",
-            ["uzk"] = "МФЙ",
+            ["uzc"] = "МФЙ",
             ["ru"] = "МФЙ",
             ["en"] = "MFY",
             ["qq"] = "МФЙ"

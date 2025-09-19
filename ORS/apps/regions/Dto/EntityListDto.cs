@@ -6,7 +6,7 @@ namespace ORS.Apps.Regions.Dto;
 
 public class EntityListDto {
     [FromQuery(Name = "lang")]
-    [SwaggerParameter(Description = "Language ([] - O\u2018zbekcha, uzk - Ўзбекча, ru - Русский)")]
+    [SwaggerParameter(Description = "Language ([] - O\u2018zbekcha, uzc - Ўзбекча, ru - Русский)")]
     public string Lang { get; set; } = "uz";
     
     [FromQuery(Name = "page")]

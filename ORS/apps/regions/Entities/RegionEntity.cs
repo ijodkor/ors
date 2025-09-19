@@ -21,7 +21,7 @@ public class RegionEntity() {
         Longitude = region.Longitude;
         
         Name["uz"] = region.NameUzl;
-        Name["uzk"] = region.NameUzk;
+        Name["uzc"] = region.NameUzk;
         Name["ru"] = region.NameRu;
         Name["en"] = region.Name;
         Name["kaa"] = region.NameUzk;
