@@ -9,7 +9,7 @@ namespace ORS.Apps.Country;
 public class CountryController : Controller {
     // GET
     [HttpGet]
-    public Index() {
+    public String Index() {
         return "api/countries";
     }
 }
