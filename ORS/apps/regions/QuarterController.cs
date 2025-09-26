@@ -2,11 +2,13 @@ using Microsoft.AspNetCore.Mvc;
 using ORS.Apps.Regions.Dto;
 using ORS.core.Entities;
 using ORS.core.Exceptions;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace ORS.Apps.Regions;
 
 [ApiController]
 [Route("api/quarters")]
+[SwaggerTag("Last update: 01.03.2024")]
 public class QuarterController(QuarterService service) : Controller {
     // GET
     [HttpGet]

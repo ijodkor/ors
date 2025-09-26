@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ORS.Apps;
-using ORS.apps.MobileOperators;
+using ORS.Apps.MobileOperators;
 using ORS.Apps.Regions;
 using ORS.Database;
 using Npgsql;

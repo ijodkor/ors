@@ -1,7 +1,7 @@
-using ORS.apps.MobileOperators.Models;
+using ORS.Apps.MobileOperators.Models;
 using ORS.Database;
 
-namespace ORS.apps.MobileOperators;
+namespace ORS.Apps.MobileOperators;
 
 public class OperatorService(DatabaseContext _db) {
 

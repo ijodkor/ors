@@ -10,7 +10,7 @@ namespace ORS.Apps.Regions;
 
 [ApiController]
 [Route("api/regions")] // [Route("api/[controller]")]
-[SwaggerTag("Region (15.09.2025)")]
+[SwaggerTag("Last update: 15.09.2025")]
 public class RegionController(RegionService service) : Controller {
     // GET
     [HttpGet]

@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ORS.apps.MobileOperators.Models;
+namespace ORS.Apps.MobileOperators.Models;
 
 [Table("mobile_operators")] // Schema = "public"
 public class MobileOperator {

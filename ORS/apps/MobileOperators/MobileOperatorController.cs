@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using ORS.apps.MobileOperators.Models;
+using ORS.Apps.MobileOperators.Models;
 
-namespace ORS.apps.MobileOperators;
+namespace ORS.Apps.MobileOperators;
 
 [ApiController]
 [Route("api/mobile/operators")]
