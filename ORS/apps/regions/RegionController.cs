@@ -4,11 +4,13 @@ using ORS.Apps.Regions.Dto;
 using ORS.Apps.Regions.Entities;
 using ORS.core.Entities;
 using ORS.core.Exceptions;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace ORS.Apps.Regions;
 
 [ApiController]
 [Route("api/regions")] // [Route("api/[controller]")]
+[SwaggerTag("Region (15.09.2025)")]
 public class RegionController(RegionService service) : Controller {
     // GET
     [HttpGet]
